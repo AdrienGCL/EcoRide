@@ -1,0 +1,105 @@
+:root{
+    --mainColor: #408080;
+    --secondaryColor: #8FBFBF;
+    --thirdColor: #FFDFCC;
+    --fourthColor: #AA8671;
+    --fifthColor: #8C8C8C;
+    --altColor: #CCFFFF;
+    --mainFontSize: 12px;
+}
+
+body{
+font-family: Ebrima;
+}
+.bg-lightbeige{
+    background-color: var(--thirdColor);
+}
+
+.mainBgColor{
+    background-color: var(--mainColor);
+}
+.secondaryBgColor{
+    background-color: var(--secondaryColor);
+}
+
+header{
+    height: 80px;
+    padding: 10px;
+    font-weight: bold;
+}
+header, a, a:visited{
+    color: var(--mainColor);
+    font-size: var(--mainFontSize);
+    text-decoration: none;
+    line-height: 100%;
+}
+.logo{
+    height: 60px;
+}
+.logoMini{
+    height: 54px;
+    max-width: auto;
+    padding: 0;
+}
+.navMenu{
+    height: 100%;
+    width: 100%;
+}
+.navMenu-listItem{
+    text-align: center;
+}
+
+.mainContainer{
+    padding: 0 100px;
+}
+.presentation{
+    padding: 20px 10px;
+    border-radius: 15px;
+}
+
+.presTitle{
+    height: fit-content;
+    width: fit-content;
+    max-width: 100%;
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 0 0 20px 0;
+    padding: 10px;
+    background-color: #ffffff;
+}
+.padding-10{
+    padding: 10px;
+}
+.padding-5{
+    padding: 5px;
+}
+.round-10{
+    border-radius: 10px;
+}
+.imgAccueil{
+    width: 250px;
+}
+.imgTxtAccueil{
+    color: #ffffff;
+    text-align: center;
+    text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.90);
+    font-size: 32px;
+    line-height: normal;
+}
+.description{
+    align-self: stretch;
+    color: #ffffff;
+    text-align: center;
+    font-size: 16px;
+    line-height: normal;
+}
+.footerContainer{
+    color: var(--mainColor);
+    font-size: var(--mainFontSize);
+    margin: 0;
+    padding: 10px;
+    height: 60px;
+}
+.footerContainer p{
+    margin: 0;
+}
