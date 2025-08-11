@@ -21,7 +21,9 @@ font-family: Ebrima;
 .secondaryBgColor{
     background-color: var(--secondaryColor);
 }
-
+.text-white{
+    color: #ffffff;
+}
 header{
     height: 80px;
     padding: 10px;
@@ -55,6 +57,7 @@ header, a, a:visited{
 .presentation{
     padding: 20px 10px;
     border-radius: 15px;
+    margin-bottom: 40px;
 }
 
 .presTitle{
@@ -76,11 +79,19 @@ header, a, a:visited{
 .round-10{
     border-radius: 10px;
 }
+.gap-10{
+    gap: 10px;
+}
+.gap-20{
+    gap: 20px;
+}
+.gap-30{
+    gap: 30px;
+}
 .imgAccueil{
     width: 250px;
 }
 .imgTxtAccueil{
-    color: #ffffff;
     text-align: center;
     text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.90);
     font-size: 32px;
@@ -88,10 +99,70 @@ header, a, a:visited{
 }
 .description{
     align-self: stretch;
-    color: #ffffff;
     text-align: center;
     font-size: 16px;
     line-height: normal;
+}
+.searchBar{
+    border-radius: 15px;
+    width: fit-content;
+}
+.searchTitle{
+    width: fit-content;
+    font-size: 20px;
+    font-weight: 400;
+    text-align: center;
+}
+#searchTrajetForm{
+    width: fit-content;
+}
+.txtForm{
+    position: relative;
+}
+.labelForm{
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: translate(25%, -75%);
+    background-color: var(--fourthColor);
+    padding: 2px 4px;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+    text-align: center;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+}
+.inputContainer{
+    background-color: #ffffff;
+    border: 2px solid var(--fourthColor);
+    border-radius: 4px;
+    gap: 10px;
+}
+.iconForm{
+    width: 24px;
+    height: 24px;
+}
+.txtInputForm{
+    border: none;
+}
+textarea, input{
+    color: var(--fifthColor);
+}
+
+textarea:focus, input:focus{
+    outline: none;
+}
+::-webkit-calendar-picker-indicator {
+    filter: invert(1) brightness(50%);
+}
+.submitBtn{
+    background-color: var(--fourthColor);
+    border-radius: 4px;
+    border: none;
+    font-size: 14px;
+    font-weight: 400;
 }
 .footerContainer{
     color: var(--mainColor);

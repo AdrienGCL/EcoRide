@@ -14,7 +14,7 @@
     <div class="globlaContainer container-fluid vh-100 d-flex flex-column m-0 p-0 secondaryBgColor">
         <?php require_once "html/header.html"; ?>
 
-        <main class="mainContainer d-flex col container-fluid align-items-center justify-content-center">
+        <main class="mainContainer d-flex flex-column col container-fluid align-items-center justify-content-center">
             <article class="presentation row align-items-center justify-content-center mainBgColor">
                 <div class="presTitle row">
                     <img class="logoMini" src="assets/images/logo_ecoride_mini.jpg" alt="Logo de la société EcoRide(">
@@ -46,9 +46,11 @@
                     </div>
                 </div>
                 <div class="row padding-10">
-                    <p class="description m-0 p-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vel nisl quis neque mollis egestas ut ac metus. Fusce et semper arcu. Donec bibendum imperdiet massa, vel faucibus nisi iaculis nec. Donec nec suscipit magna, vel mollis nibh. Suspendisse pulvinar, tortor nec dapibus fringilla, est lorem condimentum urna, vel mattis dui nunc molestie enim. Duis euismod condimentum enim, at fermentum libero posuere accumsan. Integer iaculis fringilla imperdiet. Aliquam erat volutpat. Integer quis vehicula eros. Sed tincidunt consequat eros, vitae malesuada augue congue at.</p>
+                    <p class="description m-0 p-0 text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vel nisl quis neque mollis egestas ut ac metus. Fusce et semper arcu. Donec bibendum imperdiet massa, vel faucibus nisi iaculis nec. Donec nec suscipit magna, vel mollis nibh. Suspendisse pulvinar, tortor nec dapibus fringilla, est lorem condimentum urna, vel mattis dui nunc molestie enim. Duis euismod condimentum enim, at fermentum libero posuere accumsan. Integer iaculis fringilla imperdiet. Aliquam erat volutpat. Integer quis vehicula eros. Sed tincidunt consequat eros, vitae malesuada augue congue at.</p>
                 </div>
             </article>
+
+            <?php require_once "html/recherche_trajet.html"; ?>
         </main>
 
         <?php require_once "html/footer.html"; ?>
