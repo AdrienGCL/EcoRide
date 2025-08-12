@@ -51,13 +51,21 @@ header, a, a:visited{
     text-align: center;
 }
 
+.globlaContainer{
+    width: 100%;
+    height: fit-content;
+    min-height: 100vh;
+}
+
 .mainContainer{
     padding: 0 100px;
+    max-width: 100%;
+    height: fit-content;
 }
 .presentation{
     padding: 20px 10px;
     border-radius: 15px;
-    margin-bottom: 40px;
+    margin-bottom: 40px !important;
 }
 
 .presTitle{
@@ -87,6 +95,9 @@ header, a, a:visited{
 }
 .gap-30{
     gap: 30px;
+}
+.stackParent{
+    width: fit-content;
 }
 .imgAccueil{
     width: 250px;
@@ -118,6 +129,7 @@ header, a, a:visited{
 }
 .txtForm{
     position: relative;
+    width: fit-content;
 }
 .labelForm{
     position: absolute;
@@ -173,4 +185,20 @@ textarea:focus, input:focus{
 }
 .footerContainer p{
     margin: 0;
+}
+
+
+
+@media screen and (max-width: 768px) {
+
+    .mainContainer{
+        padding: 20px 10px 80px 10px;
+    }
+    .imgAccueil{
+        width: auto;
+        height: 177px;
+    }
+    .imgTxtAccueil{
+        font-size: 15px;
+    }
 }
