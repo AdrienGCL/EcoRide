@@ -87,6 +87,9 @@ header, a, a:visited{
 .round-10{
     border-radius: 10px;
 }
+.round-15{
+    border-radius: 15px;
+}
 .gap-10{
     gap: 10px;
 }
@@ -95,6 +98,9 @@ header, a, a:visited{
 }
 .gap-30{
     gap: 30px;
+}
+.gap-40{
+    gap: 40px;
 }
 .stackParent{
     width: fit-content;
@@ -175,6 +181,14 @@ textarea:focus, input:focus{
     border: none;
     font-size: 14px;
     font-weight: 400;
+}
+
+.filterContainer{
+    color: var(--mainColor);
+    font-size: 16px;
+}
+.resultContainer{
+    margin-top: 40px;
 }
 .footerContainer{
     color: var(--mainColor);
