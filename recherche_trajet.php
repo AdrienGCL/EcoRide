@@ -20,9 +20,11 @@
             <div class="resultContainer container padding-10 round-15 mainBgColor ">
                 <div class="filterContainer row gap-20 bg-lightbeige padding-10 round-10 m-0">
                     <div class="filterArea col padding-10 d-flex align-items-center justify-content-center">
-                        <div class="row m-0 gap-10">
+                        <div class="row m-0 gap-10 d-flex align-items-center justify-content-center">
                             <p class="col-auto p-0 m-0 ">Voyage écologique</p>
-                            <input class="col p-0 m-0" type="checkbox" name="eco" id="eco">
+                            <div class="checkbox-wrapper col p-0 m-0">
+                                <input class="checkbox row m-0 p-0" type="checkbox" name="eco" id="eco">
+                            </div>
                         </div>
                     </div>
                     <div class="filterArea col padding-10">
