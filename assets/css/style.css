@@ -106,6 +106,19 @@ header, a, a:visited{
 .gap-40{
     gap: 40px;
 }
+.font-12{
+    font-size: 12px;
+}
+.font-14{
+    font-size: 14px;
+}
+.fontweight-700{
+    font-weight: 700;
+}
+.btnStyle{
+    border-radius: 4px;
+    background-color: var(--fourthColor);
+}
 .stackParent{
     width: fit-content;
 }
@@ -190,6 +203,7 @@ textarea:focus, input:focus{
 .filterContainer{
     color: var(--mainColor);
     font-size: 16px;
+    margin: 0 0 40px 0;
 }
 
 .checkbox-wrapper{
@@ -268,6 +282,21 @@ textarea:focus, input:focus{
 .resultContainer{
     margin-top: 40px;
 }
+
+.trajet_listElement{
+    border: 1px solid var(--altColor);
+    margin: 5px 0 5px 0;
+    line-height: normal;
+}
+.profilePic{
+    width: 80px;
+    height: auto;
+}
+.leafIcon{
+    width: 15px;
+    height: fit-content;
+}
+
 .footerContainer{
     color: var(--mainColor);
     font-size: var(--mainFontSize);

@@ -17,8 +17,8 @@
 
             <?php require_once "html/recherche_trajet.html"; ?>
 
-            <div class="resultContainer container padding-10 round-15 mainBgColor ">
-                <div class="filterContainer row gap-20 bg-lightbeige padding-10 round-10 m-0">
+            <div class="resultContainer container padding-10 round-15 mainBgColor">
+                <div class="filterContainer row gap-20 bg-lightbeige padding-10 round-10">
                     <div class="filterArea col padding-10 d-flex align-items-center justify-content-center">
                         <div class="row m-0 gap-10 d-flex align-items-center justify-content-center">
                             <p class="col-auto p-0 m-0 ">Voyage écologique</p>
@@ -58,7 +58,16 @@
                         </div>
                     </div>
                 </div>
-                <div class="searchResultContainer row"></div>
+                <div class="searchResultContainer row m-0 p-0">
+                    <?php include_once "html/recap_recherche.html"; ?>
+
+                    <ul class="row">
+                        <?php include "html/trajet_listElement.html" ?>
+                        <?php include "html/trajet_listElement.html" ?>
+                        <?php include "html/trajet_listElement.html" ?>
+                        <?php include "html/trajet_listElement.html" ?>
+                    </ul>
+                </div>
             </div>
             
         </main>
