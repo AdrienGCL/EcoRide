@@ -134,6 +134,7 @@ header, a, a:visited{
 .btnStyle{
     border-radius: 4px;
     background-color: var(--fourthColor);
+    cursor: pointer;
 }
 
 .starIcon{
@@ -306,6 +307,7 @@ textarea:focus, input:focus{
 }
 .filterNote{
     height: 20px;
+    cursor: pointer;
 }
 
 input::-webkit-calendar-picker-indicator{
