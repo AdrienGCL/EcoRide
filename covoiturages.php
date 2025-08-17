@@ -46,9 +46,9 @@
                         </div>
                     </div>
                     <div class="filterArea col padding-10 d-flex align-items-center justify-content-center">
-                        <div class="row m-0 gap-20">
+                        <div class="filterNote row m-0 gap-20">
                             <p class="col-auto p-0 m-0">Note</p>
-                            <div class="col p-0">
+                            <div class="starContainer col p-0 m-0">
                                 <?php include "assets/icons/star.svg" ?>
                                 <?php include "assets/icons/star.svg" ?>
                                 <?php include "assets/icons/star.svg" ?>
@@ -61,8 +61,7 @@
                 <div class="searchResultContainer row m-0 p-0">
                     <?php include_once "html/recap_recherche.html"; ?>
 
-                    <ul class="row">
-                        <?php include "html/trajet_listElement.html" ?>
+                    <ul class="row container-fluid m-0 p-0">
                         <?php include "html/trajet_listElement.html" ?>
                         <?php include "html/trajet_listElement.html" ?>
                         <?php include "html/trajet_listElement.html" ?>

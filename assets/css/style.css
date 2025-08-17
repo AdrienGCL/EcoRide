@@ -15,10 +15,10 @@
 body{
 font-family: Ebrima;
 }
+
 .bg-lightbeige{
     background-color: var(--thirdColor);
 }
-
 .mainBgColor{
     background-color: var(--mainColor);
 }
@@ -28,6 +28,7 @@ font-family: Ebrima;
 .text-white{
     color: #ffffff;
 }
+
 header{
     height: 80px;
     padding: 10px;
@@ -62,16 +63,16 @@ header, a, a:visited{
 }
 
 .mainContainer{
-    padding: 0 100px;
+    padding: 40px 100px;
     max-width: 100%;
     height: fit-content;
 }
+
 .presentation{
     padding: 20px 10px;
     border-radius: 15px;
     margin-bottom: 40px !important;
 }
-
 .presTitle{
     height: fit-content;
     width: fit-content;
@@ -82,11 +83,20 @@ header, a, a:visited{
     padding: 10px;
     background-color: #ffffff;
 }
+
 .padding-10{
     padding: 10px;
 }
 .padding-5{
     padding: 5px;
+}
+
+.margin-b-10{
+    margin-bottom: 10px !important;
+}
+
+.round-4{
+    border-radius: 4px;
 }
 .round-10{
     border-radius: 10px;
@@ -94,6 +104,7 @@ header, a, a:visited{
 .round-15{
     border-radius: 15px;
 }
+
 .gap-10{
     gap: 10px;
 }
@@ -106,19 +117,33 @@ header, a, a:visited{
 .gap-40{
     gap: 40px;
 }
+
 .font-12{
     font-size: 12px;
 }
 .font-14{
     font-size: 14px;
 }
+.font-16{
+    font-size: 16px;
+}
 .fontweight-700{
     font-weight: 700;
 }
+
 .btnStyle{
     border-radius: 4px;
     background-color: var(--fourthColor);
 }
+
+.starIcon{
+    height: 100% !important;
+    width: auto;
+    top: 0;
+    left: 0;
+    padding: 0;
+}
+
 .stackParent{
     width: fit-content;
 }
@@ -279,14 +304,28 @@ textarea:focus, input:focus{
 .filterSlider:focus{
     outline: none;
 }
+.filterNote{
+    height: 20px;
+}
+
+input::-webkit-calendar-picker-indicator{
+    cursor: pointer;
+}
+
 .resultContainer{
     margin-top: 40px;
 }
 
 .trajet_listElement{
-    border: 1px solid var(--altColor);
+    border: 1px solid var(--secondaryColor);
     margin: 5px 0 5px 0;
     line-height: normal;
+}
+.resultNote{
+    height: 20px;
+}
+.starContainer{
+    height: 100%;
 }
 .profilePic{
     width: 80px;
@@ -321,5 +360,10 @@ textarea:focus, input:focus{
     }
     .imgTxtAccueil{
         font-size: 15px;
+    }
+
+    .filterContainer{
+        display: flex;
+        flex-direction: column !important;
     }
 }
