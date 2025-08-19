@@ -22,7 +22,7 @@
                     <div class="row margin-b-20">
                         <p class="col-auto p-0 m-0 fontweight-700 font-24">DEPART > ARRIVEE</p>
                     </div>
-                    <div class="row p-0 m-0 gap-10 margin-b-20">
+                    <div class="row p-0 m-0 gap-10 margin-b-20 d-flex align-items-center justify-content-center">
                         <p class="col-auto p-0 m-0">Départ le jj/mm/aaaa à hh/mm</p>
                         <p class="col-auto p-0 m-0">-</p>
                         <p class="col-auto p-0 m-0">Arrivée le jj/mm/aaaa à hh/mm</p>
@@ -57,7 +57,7 @@
                     <div class="row margin-b-20">
                         <p class="col-auto p-0 m-0 font-16">Ce que les utilisateurs ont pensé de "Pseudo" :</p>
                     </div>
-                    <div class="row margin-b-20">
+                    <div class="row container-fluid margin-b-20">
                         <div class="col m-0 p-0">
                             <?php include "html/avis.html" ?>
                             <?php include "html/avis.html" ?>
