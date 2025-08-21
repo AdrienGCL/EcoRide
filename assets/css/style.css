@@ -18,6 +18,10 @@ font-family: Ebrima;
 
 .bg-lightbeige{
     background-color: var(--thirdColor);
+
+}
+.bg-white{
+    background-color: white;
 }
 .mainBgColor{
     background-color: var(--mainColor);
@@ -116,6 +120,12 @@ header, a, a:visited{
 .round-15{
     border-radius: 15px;
 }
+.round-tr-15{
+    border-radius: 0 15px 0 0;
+}
+.round-tl-15{
+    border-radius: 15px 0 0 0;
+}
 
 .gap-10{
     gap: 10px;
@@ -146,10 +156,24 @@ header, a, a:visited{
     font-weight: 700;
 }
 
+.fit{
+    width: fit-content;
+}
+.bsizing-bb{
+    box-sizing: border-box;
+}
+
 .btnStyle{
     border-radius: 4px;
     background-color: var(--fourthColor);
     cursor: pointer;
+}
+.pointer{
+    cursor: pointer;
+}
+
+.hidden{
+    display: none !important;
 }
 
 .starIcon{
