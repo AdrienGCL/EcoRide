@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourcePerFileMappings">
+    <file url="file://$APPLICATION_CONFIG_DIR$/consoles/db/13ccc62d-b05c-4261-a7bd-3874d32d3b6d/console.sql" value="13ccc62d-b05c-4261-a7bd-3874d32d3b6d" />
+    <file url="file://$PROJECT_DIR$/create_database.sql" value="13ccc62d-b05c-4261-a7bd-3874d32d3b6d" />
+    <file url="file://$PROJECT_DIR$/create_table_avis.sql" value="13ccc62d-b05c-4261-a7bd-3874d32d3b6d" />
+    <file url="file://$PROJECT_DIR$/create_table_config.sql" value="13ccc62d-b05c-4261-a7bd-3874d32d3b6d" />
+    <file url="file://$PROJECT_DIR$/create_table_covoiturage.sql" value="13ccc62d-b05c-4261-a7bd-3874d32d3b6d" />
+    <file url="file://$PROJECT_DIR$/create_table_employe.sql" value="13ccc62d-b05c-4261-a7bd-3874d32d3b6d" />
+    <file url="file://$PROJECT_DIR$/create_table_energie.sql" value="13ccc62d-b05c-4261-a7bd-3874d32d3b6d" />
+    <file url="file://$PROJECT_DIR$/create_table_marque.sql" value="13ccc62d-b05c-4261-a7bd-3874d32d3b6d" />
+    <file url="file://$PROJECT_DIR$/create_table_note.sql" value="13ccc62d-b05c-4261-a7bd-3874d32d3b6d" />
+    <file url="file://$PROJECT_DIR$/create_table_passager.sql" value="13ccc62d-b05c-4261-a7bd-3874d32d3b6d" />
+    <file url="file://$PROJECT_DIR$/create_table_preference.sql" value="13ccc62d-b05c-4261-a7bd-3874d32d3b6d" />
+    <file url="file://$PROJECT_DIR$/create_table_role.sql" value="13ccc62d-b05c-4261-a7bd-3874d32d3b6d" />
+    <file url="file://$PROJECT_DIR$/create_table_statutTrajet.sql" value="13ccc62d-b05c-4261-a7bd-3874d32d3b6d" />
+    <file url="file://$PROJECT_DIR$/create_table_suivi.sql" value="13ccc62d-b05c-4261-a7bd-3874d32d3b6d" />
+    <file url="file://$PROJECT_DIR$/create_table_user.sql" value="13ccc62d-b05c-4261-a7bd-3874d32d3b6d" />
+    <file url="file://$PROJECT_DIR$/create_table_voiture.sql" value="13ccc62d-b05c-4261-a7bd-3874d32d3b6d" />
+    <file url="file://$PROJECT_DIR$/insert_data_config.sql" value="13ccc62d-b05c-4261-a7bd-3874d32d3b6d" />
+    <file url="file://$PROJECT_DIR$/insert_data_droit.sql" value="13ccc62d-b05c-4261-a7bd-3874d32d3b6d" />
+    <file url="file://$PROJECT_DIR$/insert_data_employe.sql" value="13ccc62d-b05c-4261-a7bd-3874d32d3b6d" />
+  </component>
+</project>

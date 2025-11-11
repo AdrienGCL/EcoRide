@@ -1,0 +1,21 @@
+CREATE TABLE dbEcoride.Covoiturage (
+    covoiturage_id INT AUTO_INCREMENT PRIMARY KEY,
+    date_depart DATE NOT NULL,
+    heure_depart TIME NOT NULL,
+    lieu_depart VARCHAR(255) NOT NULL,
+    date_arrivee DATE NOT NULL,
+    heure_arrivee TIME NOT NULL,
+    lieu_arrivee VARCHAR(255) NOT NULL,
+    duree INT NOT NULL,
+    statut INT NOT NULL DEFAULT 1,
+    nb_place INT NOT NULL,
+    nb_place_dispo INT NOT NULL,
+    prix_personne DECIMAL(10,2) NOT NULL,
+    heure_reelle_d TIME,
+    heure_reelle_a TIME,
+    chauffeur INT NOT NULL,
+    vehicule INT NOT NULL,
+    FOREIGN KEY (statut) REFERENCES dbEcoride.StatutTrajet(statut_id),
+    FOREIGN KEY (chauffeur) REFERENCES dbEcoride.utilisateur(user_id),
+    FOREIGN KEY (vehicule) REFERENCES dbEcoride.voiture(voiture_id)
+);
