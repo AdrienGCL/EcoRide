@@ -13,7 +13,21 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
 
     <div class="globlaContainer d-flex flex-column m-0 p-0 secondaryBgColor">
-        <?php require_once "html/header.html"; ?>
+        <?php
+            require_once __DIR__. "/templates/header.php";
+            require_once __DIR__. "/lib/php/pdo.php";
+            require_once __DIR__. "/lib/php/signup.php";
+
+            if (isset($_POST['Signin'])){
+                $signup = saveUserInformations($pdo, $_POST['pseudo'], $_POST['mail'], $_POST['mdpregister'], $_POST['firstnameregister'], $_POST['nameregister'], $_POST['birthdateregister'], $_POST['adresseregister'], $_POST['phoneregister']);
+
+                ?>
+                <div class="d-flex alert alert-success justify-content-center" role="alert">
+                    <?=$signup; ?>
+                </div>
+            <?php
+            };
+        ?>
 
         <main class="mainContainer col d-flex flex-column align-items-center justify-content-center">
             <div class="fit round-15 mainBgColor gap-20">
@@ -58,19 +72,49 @@
                     <div class="col-12 col-md-auto p-0 d-flex align-items-center justify-content-center txtForm margin-b-40">
                         <label class="row labelForm text-white" for="mdpRegisterinput">Mot de passe</label>
                         <div class="inputContainer d-flex padding-10 align-items-center">
-                            <input class="txtInputForm p-0 " type="text" name="mdpregister" id="mdpRegisterinput" placeholder="Mot de passe">
+                            <input class="txtInputForm p-0 " type="password" name="mdpregister" id="mdpRegisterinput" placeholder="Mot de passe">
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-auto p-0 d-flex align-items-center justify-content-center txtForm margin-b-40">
+                        <label class="row labelForm text-white" for="firstnameRegisterinput">Prénom</label>
+                        <div class="inputContainer d-flex padding-10 align-items-center">
+                            <input class="txtInputForm p-0 " type="text" name="firstnameregister" id="firstnameRegisterinput" placeholder="Prénom">
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-auto p-0 d-flex align-items-center justify-content-center txtForm margin-b-40">
+                        <label class="row labelForm text-white" for="nameRegisterinput">Nom</label>
+                        <div class="inputContainer d-flex padding-10 align-items-center">
+                            <input class="txtInputForm p-0 " type="text" name="nameregister" id="nameRegisterinput" placeholder="Nom">
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-auto p-0 d-flex align-items-center justify-content-center txtForm margin-b-40">
+                        <label class="row labelForm text-white" for="birthdateRegisterinput">Date de naissance</label>
+                        <div class="inputContainer d-flex padding-10 align-items-center">
+                            <input class="txtInputForm p-0 " type="date" name="birthdateregister" id="birthdateRegisterinput" placeholder="Date de naissance">
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-auto p-0 d-flex align-items-center justify-content-center txtForm margin-b-40">
+                        <label class="row labelForm text-white" for="adresseRegisterinput">Adresse</label>
+                        <div class="inputContainer d-flex padding-10 align-items-center">
+                            <input class="txtInputForm p-0 " type="text" name="adresseregister" id="adresseRegisterinput" placeholder="Adresse">
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-auto p-0 d-flex align-items-center justify-content-center txtForm margin-b-40">
+                        <label class="row labelForm text-white" for="phoneRegisterinput">Téléphone</label>
+                        <div class="inputContainer d-flex padding-10 align-items-center">
+                            <input class="txtInputForm p-0 " type="tel" name="phoneregister" id="phoneRegisterinput" placeholder="Téléphone" pattern="[0-9]{10}">
                         </div>
                     </div>
                     <div class="col-12 col-md-auto p-0 d-flex align-items-center justify-content-center margin-b-20">
-                        <input class="submitBtn padding-10 text-white" type="submit" value="S'inscrire">
+                        <input class="submitBtn padding-10 text-white" type="submit" name="Signin" value="S'inscrire">
                     </div>
                 </form>
             </div>
         </main>
 
-        <?php require_once "html/footer.html"; ?>
+        <?php require_once __DIR__. "/templates/footer.php"; ?>
     </div>
 
-    <script src="js/interface.js"></script>
+    <script src="lib/js/interface.js"></script>
 </body>
 </html>

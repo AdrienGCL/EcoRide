@@ -12,7 +12,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
 
     <div class="globlaContainer d-flex flex-column m-0 p-0 secondaryBgColor">
-        <?php require_once "html/header.html"; ?>
+        <?php require_once __DIR__. "/templates/header.php"; ?>
 
         <main class="mainContainer d-flex flex-column col align-items-center justify-content-center">
             <div class="row mainBgColor padding-20 round-15 text-white font-12 container-fluid m-0 margin-b-40">
@@ -52,7 +52,7 @@
                     </div>
 
                     <div class="row margin-b-20">
-                        <?php include_once "html/carte_visite.html" ?>
+                        <?php include_once __DIR__. "/templates/carte_visite.php" ?>
                     </div>
 
                     <div class="row margin-b-20">
@@ -60,19 +60,19 @@
                     </div>
                     <div class="row container-fluid margin-b-20">
                         <div class="col m-0 p-0">
-                            <?php include "html/avis.html" ?>
-                            <?php include "html/avis.html" ?>
-                            <?php include "html/avis.html" ?>
-                            <?php include "html/avis.html" ?>
+                            <?php include __DIR__. "/templates/avis.php" ?>
+                            <?php include __DIR__. "/templates/avis.php" ?>
+                            <?php include __DIR__. "/templates/avis.php" ?>
+                            <?php include __DIR__. "/templates/avis.php" ?>
                         </div>
                     </div>
                 </div>
             </div>
         </main>
 
-        <?php require_once "html/footer.html"; ?>
+        <?php require_once __DIR__. "/templates/footer.php"; ?>
     </div>
 
-    <script src="js/interface.js"></script>
+    <script src="lib/js/interface.js"></script>
 </body>
 </html>

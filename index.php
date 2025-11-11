@@ -13,7 +13,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
 
     <div class="globlaContainer d-flex flex-column m-0 p-0 secondaryBgColor">
-        <?php require_once "html/header.html"; ?>
+        <?php require_once __DIR__. "/templates/header.php"; ?>
 
         <main class="mainContainer d-flex flex-column col align-items-center justify-content-center">
             <article class="presentation m-0 row align-items-center justify-content-center mainBgColor">
@@ -51,13 +51,13 @@
                 </div>
             </article>
 
-            <?php require_once "html/recherche_trajet.html"; ?>
+            <?php require_once __DIR__. "/templates/recherche_trajet.php"; ?>
         </main>
 
-        <?php require_once "html/footer.html"; ?>
+        <?php require_once __DIR__. "/templates/footer.php"; ?>
     </div>
 
-    <script src="js/interface.js"></script>
+    <script src="lib/js/interface.js"></script>
 
 </body>
 </html>

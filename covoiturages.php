@@ -12,11 +12,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
 
     <div class="globlaContainer d-flex flex-column m-0 p-0 secondaryBgColor">
-        <?php require_once "html/header.html"; ?>
+        <?php require_once __DIR__. "/templates/header.php"; ?>
 
         <main class="mainContainer d-flex flex-column col align-items-center justify-content-center">
 
-            <?php require_once "html/recherche_trajet.html"; ?>
+            <?php require_once __DIR__. "/templates/recherche_trajet.php"; ?>
 
             <div class="resultContainer container padding-10 round-15 mainBgColor">
                 <div class="filterContainer row gap-20 bg-lightbeige padding-10 round-10">
@@ -50,31 +50,31 @@
                         <div class="filterNote row m-0 gap-20">
                             <p class="col-auto p-0 m-0">Note</p>
                             <div class="starContainer col p-0 m-0">
-                                <?php include "assets/icons/star.svg" ?>
-                                <?php include "assets/icons/star.svg" ?>
-                                <?php include "assets/icons/star.svg" ?>
-                                <?php include "assets/icons/star.svg" ?>
-                                <?php include "assets/icons/star.svg" ?>
+                                <?php include __DIR__. "/assets/icons/star.svg" ?>
+                                <?php include __DIR__. "/assets/icons/star.svg" ?>
+                                <?php include __DIR__. "/assets/icons/star.svg" ?>
+                                <?php include __DIR__. "/assets/icons/star.svg" ?>
+                                <?php include __DIR__. "/assets/icons/star.svg" ?>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="searchResultContainer row m-0 p-0">
-                    <?php include_once "html/recap_recherche.html"; ?>
+                    <?php include_once __DIR__. "/templates/recap_recherche.php"; ?>
 
                     <ul class="row container-fluid m-0 p-0">
-                        <?php include "html/trajet_listElement.html" ?>
-                        <?php include "html/trajet_listElement.html" ?>
-                        <?php include "html/trajet_listElement.html" ?>
+                        <?php include __DIR__. "/templates/trajet_listElement.php" ?>
+                        <?php include __DIR__. "/templates/trajet_listElement.php" ?>
+                        <?php include __DIR__. "/templates/trajet_listElement.php" ?>
                     </ul>
                 </div>
             </div>
             
         </main>
 
-        <?php require_once "html/footer.html"; ?>
+        <?php require_once __DIR__. "/templates/footer.php"; ?>
     </div>
 
-    <script src="js/interface.js"></script>
+    <script src="lib/js/interface.js"></script>
 </body>
 </html>
