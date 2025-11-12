@@ -18,14 +18,37 @@
             require_once __DIR__. "/lib/php/pdo.php";
             require_once __DIR__. "/lib/php/signup.php";
 
-            if (isset($_POST['Signin'])){
-                $signup = saveUserInformations($pdo, $_POST['pseudo'], $_POST['mail'], $_POST['mdpregister'], $_POST['firstnameregister'], $_POST['nameregister'], $_POST['birthdateregister'], $_POST['adresseregister'], $_POST['phoneregister']);
+            $success = "Félicitations, votre inscription est terminée. Vous pouvez à présent vous connecter !";
+            $fail;
 
-                ?>
-                <div class="d-flex alert alert-success justify-content-center" role="alert">
-                    <?=$signup; ?>
-                </div>
-            <?php
+            if (isset($_POST['Signin'])){
+                $existingUser = checkExistingUser($pdo, $_POST['mail']);
+                if($existingUser){
+                    $fail = "Un utilisateur existe déjà pour cette adresse email.";
+        ?>
+                    <div class="d-flex alert alert-danger justify-content-center" role="alert">
+                        <?=$fail; ?>
+                    </div>
+        <?php
+                } else {
+                    $signup = saveUserInformations($pdo, $_POST['pseudo'], $_POST['mail'], $_POST['mdpregister'], $_POST['firstnameregister'], $_POST['nameregister'], $_POST['birthdateregister'], $_POST['adresseregister'], $_POST['phoneregister']);
+
+                    if($signup == true){
+        ?>
+                        <div class="d-flex alert alert-success justify-content-center" role="alert">
+                            <?=$success; ?>
+                        </div>
+        <?php
+                    } else {
+                        $fail = "Une erreur s'est produite, merci de réessayer ultérieurement.";
+        ?>
+                        <div class="d-flex alert alert-danger justify-content-center" role="alert">
+                            <?=$fail; ?>
+                        </div>
+        <?php
+                    }
+                }
+                
             };
         ?>
 
@@ -60,49 +83,49 @@
                     <div class="col-12 col-md-auto p-0 d-flex align-items-center justify-content-center txtForm margin-b-40">
                         <label class="row labelForm text-white" for="pseudoinput">Nom d'utilisateur</label>
                         <div class="inputContainer d-flex padding-10 align-items-center">
-                            <input class="txtInputForm p-0 " type="text" name="pseudo" id="pseudoinput" placeholder="Nom d'utilisateur">
+                            <input class="txtInputForm p-0 " type="text" name="pseudo" id="pseudoinput" placeholder="Nom d'utilisateur" required>
                         </div>
                     </div>
                     <div class="col-12 col-md-auto p-0 d-flex align-items-center justify-content-center txtForm margin-b-40">
                         <label class="row labelForm text-white" for="mailinput">Adresse mail</label>
                         <div class="inputContainer d-flex padding-10 align-items-center">
-                            <input class="txtInputForm p-0 " type="text" name="mail" id="mailinput" placeholder="Adresse mail">
+                            <input class="txtInputForm p-0 " type="email" name="mail" id="mailinput" placeholder="Adresse mail" required>
                         </div>
                     </div>
                     <div class="col-12 col-md-auto p-0 d-flex align-items-center justify-content-center txtForm margin-b-40">
                         <label class="row labelForm text-white" for="mdpRegisterinput">Mot de passe</label>
                         <div class="inputContainer d-flex padding-10 align-items-center">
-                            <input class="txtInputForm p-0 " type="password" name="mdpregister" id="mdpRegisterinput" placeholder="Mot de passe">
+                            <input class="txtInputForm p-0 " type="password" name="mdpregister" id="mdpRegisterinput" placeholder="Mot de passe" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" oninvalid="this.setCustomValidity('Veuillez utiliser au minimum 8 caractères, 1 majuscule, 1 minuscule et 1 chiffre.')" oninput="this.setCustomValidity('')"  required>
                         </div>
                     </div>
                     <div class="col-12 col-md-auto p-0 d-flex align-items-center justify-content-center txtForm margin-b-40">
                         <label class="row labelForm text-white" for="firstnameRegisterinput">Prénom</label>
                         <div class="inputContainer d-flex padding-10 align-items-center">
-                            <input class="txtInputForm p-0 " type="text" name="firstnameregister" id="firstnameRegisterinput" placeholder="Prénom">
+                            <input class="txtInputForm p-0 " type="text" name="firstnameregister" id="firstnameRegisterinput" placeholder="Prénom" required>
                         </div>
                     </div>
                     <div class="col-12 col-md-auto p-0 d-flex align-items-center justify-content-center txtForm margin-b-40">
                         <label class="row labelForm text-white" for="nameRegisterinput">Nom</label>
                         <div class="inputContainer d-flex padding-10 align-items-center">
-                            <input class="txtInputForm p-0 " type="text" name="nameregister" id="nameRegisterinput" placeholder="Nom">
+                            <input class="txtInputForm p-0 " type="text" name="nameregister" id="nameRegisterinput" placeholder="Nom" required>
                         </div>
                     </div>
                     <div class="col-12 col-md-auto p-0 d-flex align-items-center justify-content-center txtForm margin-b-40">
                         <label class="row labelForm text-white" for="birthdateRegisterinput">Date de naissance</label>
                         <div class="inputContainer d-flex padding-10 align-items-center">
-                            <input class="txtInputForm p-0 " type="date" name="birthdateregister" id="birthdateRegisterinput" placeholder="Date de naissance">
+                            <input class="txtInputForm p-0 " type="date" name="birthdateregister" id="birthdateRegisterinput" placeholder="Date de naissance" required>
                         </div>
                     </div>
                     <div class="col-12 col-md-auto p-0 d-flex align-items-center justify-content-center txtForm margin-b-40">
                         <label class="row labelForm text-white" for="adresseRegisterinput">Adresse</label>
                         <div class="inputContainer d-flex padding-10 align-items-center">
-                            <input class="txtInputForm p-0 " type="text" name="adresseregister" id="adresseRegisterinput" placeholder="Adresse">
+                            <input class="txtInputForm p-0 " type="text" name="adresseregister" id="adresseRegisterinput" placeholder="Adresse" required>
                         </div>
                     </div>
                     <div class="col-12 col-md-auto p-0 d-flex align-items-center justify-content-center txtForm margin-b-40">
                         <label class="row labelForm text-white" for="phoneRegisterinput">Téléphone</label>
                         <div class="inputContainer d-flex padding-10 align-items-center">
-                            <input class="txtInputForm p-0 " type="tel" name="phoneregister" id="phoneRegisterinput" placeholder="Téléphone" pattern="[0-9]{10}">
+                            <input class="txtInputForm p-0 " type="tel" name="phoneregister" id="phoneRegisterinput" placeholder="Téléphone" pattern="[0-9]{10}" required>
                         </div>
                     </div>
                     <div class="col-12 col-md-auto p-0 d-flex align-items-center justify-content-center margin-b-20">

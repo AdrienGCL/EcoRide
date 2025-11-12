@@ -13,7 +13,7 @@
                         <a class="navbar-text" aria-label="Page de covoiturage" href="covoiturages.php">Covoiturages</a>
                     </li>
                     <li class="col navbar-item navMenu-listItem">
-                        <a class="navbar-text" aria-label="Page de connexion" href="">Connexion</a>
+                        <a class="navbar-text" aria-label="Page de connexion" href="Connexion.php">Connexion</a>
                     </li>
                     <li class="col navbar-item navMenu-listItem">
                         <a class="navbar-text" aria-label="Page contact" href="">Contact</a>

@@ -1,6 +1,22 @@
 <?php
-    
-    function saveUserInformations(PDO $pdo, string $pseudo, string $mail, string $mdpregister, string $firstnameregister, string $nameregister, string $birthdateregister, string $adresseregister, string $phoneregister,):string
+
+    function checkExistingUser(PDO $pdo, string $mail):BOOL
+    {
+        $query = $pdo -> prepare("SELECT * FROM utilisateur WHERE email = :email");
+        $query->bindValue(':email', $mail, PDO::PARAM_STR);
+        $query->execute();
+        $user = $query->fetch(PDO::FETCH_ASSOC);
+
+        if($user){
+            var_dump($user);
+            return true;
+        }
+        else {
+            return false;
+        }
+    };
+
+    function saveUserInformations(PDO $pdo, string $pseudo, string $mail, string $mdpregister, string $firstnameregister, string $nameregister, string $birthdateregister, string $adresseregister, string $phoneregister,):BOOL
     {
         try
         {
@@ -17,11 +33,11 @@
             $query->bindValue(':pseudo', $pseudo, PDO::PARAM_STR);
             $query->execute();
 
-            return "Félicitations, votre inscription est terminée. Vous pouvez à présent vous connecter !";
+            return true;
         }
         catch (Exception $e)
         {
-            return "Une erreur s'est produite, merci de réessayer ultérieurement.";
+            return false;
         }
         
-    }
+    };
