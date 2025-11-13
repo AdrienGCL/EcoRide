@@ -17,11 +17,15 @@
             require_once __DIR__. "/templates/header.php";
             require_once __DIR__. "/lib/php/pdo.php";
             require_once __DIR__. "/lib/php/signup.php";
+            require_once __DIR__. "/lib/php/user.php";
 
             $success = "Félicitations, votre inscription est terminée. Vous pouvez à présent vous connecter !";
             $fail;
 
+            // Inscription
+            // Vérification de l'envoi du formulaire
             if (isset($_POST['Signin'])){
+                // Vérifie si l'utilisateur existe déjà
                 $existingUser = checkExistingUser($pdo, $_POST['mail']);
                 if($existingUser){
                     $fail = "Un utilisateur existe déjà pour cette adresse email.";
@@ -31,9 +35,10 @@
                     </div>
         <?php
                 } else {
+                    // Enregistre le nouvel utilisateur
                     $signup = saveUserInformations($pdo, $_POST['pseudo'], $_POST['mail'], $_POST['mdpregister'], $_POST['firstnameregister'], $_POST['nameregister'], $_POST['birthdateregister'], $_POST['adresseregister'], $_POST['phoneregister']);
 
-                    if($signup == true){
+                    if($signup){
         ?>
                         <div class="d-flex alert alert-success justify-content-center" role="alert">
                             <?=$success; ?>
@@ -50,9 +55,35 @@
                 }
                 
             };
+
+            // Connexion
+            $errors =[];
+
+            if (isset($_POST['loginUser'])){
+                $user = verifyUserLoginPassword($pdo, $_POST['identifiant'], $_POST['mdp']);
+
+                if($user){
+                    if($user["statut"] == 1){
+                        $_SESSION['user'] = $user;
+                        header('location: index.php');
+                    } else {
+                        $errors[] = "Compte suspendu. Pour plus d'information, veuillez contacter le service client";
+                    }
+                    
+                } else {
+                    $errors[] = "Email ou mot de passe incorrect";
+                }
+            }
         ?>
 
         <main class="mainContainer col d-flex flex-column align-items-center justify-content-center">
+            <?php
+                foreach ($errors as $errors) { ?>
+                <div class="alert alert-danger" role="alert">
+                    <?=$errors; ?>
+                </div>
+            <?php } ?>
+
             <div class="fit round-15 mainBgColor gap-20">
                 <div class="row p-0 m-0 margin-b-40">
                     <h2 id="connexionTitle" class="col-auto m-0 padding-20 font-16 text-white bsizing-bb round-tl-15 mainBgColor pointer">Se connecter</h2>
@@ -75,7 +106,7 @@
                         <div class="col-auto text-white font-12">Mot de passe oublié ?</div>
                     </div>
                     <div class="col-12 col-md-auto p-0 d-flex align-items-center justify-content-center margin-b-20">
-                        <input class="submitBtn padding-10 text-white" type="submit" value="Connexion">
+                        <input class="submitBtn padding-10 text-white" type="submit" name="loginUser" value="Connexion">
                     </div>
                 </form>
 
