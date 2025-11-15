@@ -35,6 +35,9 @@ font-family: Ebrima;
 .text-mainColor{
     color: var(--mainColor);
 }
+.border-div-1{
+    border: 1px solid var(--secondaryColor);
+}
 
 header{
     height: 80px;
@@ -100,7 +103,9 @@ header, a, a:visited{
 .padding-20{
     padding: 20px;
 }
-
+.margin-b-5{
+    margin-bottom: 10px !important;
+}
 .margin-b-10{
     margin-bottom: 10px !important;
 }
@@ -390,6 +395,7 @@ input::-webkit-calendar-picker-indicator{
     margin: 0;
     padding: 10px;
     height: 60px;
+    width: 100%;
 }
 .footerContainer p{
     margin: 0;
