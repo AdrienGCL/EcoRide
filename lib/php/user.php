@@ -2,7 +2,9 @@
 
 function verifyUserLoginPassword(PDO $pdo, string $email, string $password):bool|array
 {
-    $query = $pdo->prepare("SELECT * FROM utilisateur WHERE email = :email");
+    $query = $pdo->prepare("SELECT * FROM utilisateur
+                            JOIN role ON role_id = role
+                            WHERE email = :email");
     $query->bindValue(':email', $email, PDO::PARAM_STR);
     $query->execute();
     //fetch() nous permet de récupérer une seule ligne

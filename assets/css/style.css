@@ -29,6 +29,9 @@ font-family: Ebrima;
 .secondaryBgColor{
     background-color: var(--secondaryColor);
 }
+.fourthBgColor{
+    background-color: var(--fourthColor);
+}
 .text-white{
     color: #ffffff;
 }
@@ -103,6 +106,12 @@ header, a, a:visited{
 .padding-20{
     padding: 20px;
 }
+.m-10{
+    margin: 10px !important;
+}
+.margin-r-10{
+    margin-right: 10px !important;
+}
 .margin-b-5{
     margin-bottom: 10px !important;
 }
@@ -130,6 +139,9 @@ header, a, a:visited{
 }
 .round-tl-15{
     border-radius: 15px 0 0 0;
+}
+.round-tr-b-15{
+    border-radius: 0 15px 15px 15px;
 }
 
 .gap-10{
@@ -179,6 +191,11 @@ header, a, a:visited{
 
 .hidden{
     display: none !important;
+}
+
+.rounded-icon-bg{
+    width: 30px;
+    height: 30px;
 }
 
 .starIcon{
@@ -262,6 +279,15 @@ textarea:focus, input:focus{
 ::-webkit-calendar-picker-indicator {
     filter: invert(1) brightness(50%);
 }
+
+input[type='radio'] {
+    accent-color: var(--mainColor);
+}
+
+select{
+    width: 200px;
+}
+
 .submitBtn{
     background-color: var(--fourthColor);
     border-radius: 4px;
