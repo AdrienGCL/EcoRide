@@ -4,12 +4,14 @@
     require_once __DIR__. "/lib/php/createTrajet.php";
     require_once __DIR__. "/lib/php/getMarquesListe.php";
     require_once __DIR__. "/lib/php/getEnergiesListe.php";
+    require_once __DIR__. "/lib/php/getUserCovoit.php";
 
     $userRole= getUserRole($pdo, $_SESSION['user']['user_id']);
     $userPref = getUserPreferences($pdo, $_SESSION['user']['user_id']);
     $userVehicle = getUserVehicles($pdo, $_SESSION['user']['user_id']);
     $marquesListe = getMarquesListe($pdo);
     $energiesListe = getEnergiesListe($pdo);
+    $userCovoitListe = getUserCovoitListe($pdo, $_SESSION['user']['user_id']);
 
 
     if (isset($_POST['saveRoleForm'])){
@@ -281,28 +283,31 @@
             <div class="row bg-lightbeige p-0 m-0 round-10" id="trajetHistorique">
                 <div class="col padding-10 text-mainColor">
                     <?php
-                        foreach($_SESSION['voitures'] as $voiture){ ?>
-                            <div class="row border-div-1 round-10 m-0 padding-0 margin-b-10">
-                                <div class="col padding-10">
-                                    <div class="row">
-                                        <p class="w-auto m-0 fw-bold"><?php echo($voiture['marque_name']);?></p>
-                                        <p class="w-auto m-0 fw-bold"><?php echo($voiture['modele']);?></p>
+                        foreach($userCovoitListe as $covoitListe){ ?>
+                            <div class="trajet_listElement row container-fluid padding-10 gap-10 round-10 text-white font-12">
+                                <div class="col p-0 m-0">
+                                    <div class="resultPseudo row p-0 m-0 fontweight-700 font-14 margin-b-10">
+                                        <?php echo($covoitListe['lieu_depart']); ?>
+                                         > 
+                                        <?php echo($covoitListe['lieu_arrivee']); ?>
                                     </div>
-                                    <div class="row">
-                                        <p class="w-auto m-0"><?php echo($voiture['immatriculation']);?></p>
+                                    <div class="resultPseudo row p-0 m-0 margin-b-10">Pseudo</div>
+                                    <div class="resultInfos row p-0 m-0 gap-10 margin-b-10">
+                                        <p class="col-auto p-0 m-0">Places</p>
+                                        <p class="col-auto p-0 m-0">Date</p>
+                                        <p class="col-auto p-0 m-0">Heure de départ</p>
+                                        <p class="col-auto p-0 m-0">Heure d'arrivée</p>
                                     </div>
-                                    <div class="row">
-                                        <p class="w-auto m-0">Energie : <?php echo($voiture['energie_name']);?></p>
+                                    <div class="resultEco row p-0 m-0 gap-10 d-flex align-items-center margin-b-10">
+                                        <p class="col-auto p-0 m-0">Voyage écologique</p>
+                                        <img class="col-auto leafIcon p-0 m-0" src="assets/icons/leaf.svg" alt="Icone de feuille">
                                     </div>
-                                    <div class="row">
-                                        <p class="w-auto m-0">Date de première immatriculation : <?php echo($voiture['date_immatriculation']);?></p>
+                                    <div class="resultPrix row p-0 m-0 font-16">
+                                        <p class="col-auto p-0 m-0">Prix</p>
                                     </div>
-                                    <div class="row">
-                                        <p class="w-auto m-0">Couleur : <?php echo($voiture['couleur']);?></p>
-                                    </div>
-                                    <div class="row">
-                                        <p class="w-auto m-0">Nombre de places : <?php echo($voiture['nb_place']);?></p>
-                                    </div>
+                                </div>
+                                <div class="col-auto m-0 p-0 d-flex align-items-center justify-content-center">
+                                    <a class="detailsBtn btnStyle padding-10 font-14 text-white" href="detailTrajet.php">Détails</a>
                                 </div>
                             </div>
                         <?php } ?>
