@@ -1,6 +1,7 @@
 <?php 
     require_once __DIR__. "/templates/header.php";
     require_once __DIR__. "/lib/php/user_profile.php";
+    require_once __DIR__. "/lib/php/createTrajet.php";
     require_once __DIR__. "/lib/php/getMarquesListe.php";
     require_once __DIR__. "/lib/php/getEnergiesListe.php";
 
@@ -20,6 +21,11 @@
         else {
             $savedRole= saveRole($pdo, $_SESSION['user']['user_id'], $_POST['role']);
         }
+        header('location: espace_utilisateur.php');
+    }
+
+    if (isset($_POST['saveTrajetForm'])){
+        $newTrajet = createNewTrajet($pdo, $_POST['departDate'], $_POST['departHeure'], $_POST['villeDepart'], $_POST['arriveeDate'], $_POST['arriveeHeure'], $_POST['villeArrivee'], $_POST['nbPlaces'], $_POST['price'], $_SESSION['user']['user_id'], $_POST['carChoice']);
         header('location: espace_utilisateur.php');
     }
 ?>
@@ -309,8 +315,8 @@
                 <div class="col padding-10 text-mainColor">
                     <form id="addCovoitForm" class="padding-10 d-flex flex-column align-items-center justify-content-center" action="" method="post">
 
-                        <div class="col-12 col-md-auto p-0 d-flex align-items-center justify-content-center margin-b-5 txtForm text-mainColor">
-                            <fieldset>
+                        <div class="col-12 col-md-auto p-0 align-items-center justify-content-center margin-b-5 txtForm text-mainColor">
+                            <fieldset class="row">
                                 <div class="col p-0 m-2 d-flex align-items-center justify-content-center txtForm margin-b-40">
                                     <label class="row labelForm text-white" for="dateDepartInput">Date de départ</label>
                                     <div class="inputContainer d-flex padding-10 align-items-center w-100">
@@ -330,7 +336,7 @@
                                     </div>
                                 </div>
                             </fieldset>
-                            <fieldset>
+                            <fieldset class="row">
                                 <div class="col p-0 m-2 d-flex align-items-center justify-content-center txtForm margin-b-40">
                                     <label class="row labelForm text-white" for="dateArriveeInput">Date d'arrivée</label>
                                     <div class="inputContainer d-flex padding-10 align-items-center w-100">
@@ -350,9 +356,40 @@
                                     </div>
                                 </div>
                             </fieldset>
+                            <fieldset class="row">
+                                <div class="col p-0 m-2 d-flex align-items-center justify-content-center txtForm margin-b-40">
+                                    <label class="row labelForm text-white" for="carChoiceinput">Véhicule</label>
+                                    <div class="inputContainer d-flex padding-10 align-items-center w-100">
+                                        <select class="txtInputForm p-0 w-100" name="carChoice" id="carChoiceinput" required>
+                                            <?php
+                                                foreach($userVehicle as $i){ ?>
+                                                    <option value=<?php echo($i['voiture_id']) ?>><?php echo($i['modele'])?> - <?php echo($i['immatriculation'])?></option>
+                                            <?php } ?>
+                                        </select>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <fieldset class="row">
+                                <div class="col p-0 m-2 d-flex align-items-center txtForm margin-b-40">
+                                    <label class="row labelForm text-white" for="nbPlacesinput">Nombre de places</label>
+                                    <div class="inputContainer d-flex padding-10 align-items-center">
+                                        <input class="txtInputForm p-0 " type="number" step="1" min="1" max="<?php echo($i['nb_place'] - 1) ?>" name="nbPlaces" id="nbPlacesinput" placeholder="4" required>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <fieldset class="row">
+                                <div class="col p-0 m-2 d-flex align-items-center txtForm margin-b-40">
+                                    <label class="row labelForm text-white" for="priceinput">Prix par personne</label>
+                                    <div class="inputContainer d-flex padding-10 align-items-center">
+                                        <input class="txtInputForm p-0 " type="number" step="0.1" name="price" id="priceinput" placeholder="0" min="00" required>
+                                    </div>
+                                </div>
+                            </fieldset>
                         </div>
 
-                        
+                        <div id="validateTrajetForm" class="col-12 col-md-auto p-0 d-flex align-items-center justify-content-center margin-b-20">
+                            <input id="submitTrajetForm" class="submitBtn padding-10 text-white" type="submit" name="saveTrajetForm" value="Valider le trajet">
+                        </div>
 
                     </form>
                 </div>
