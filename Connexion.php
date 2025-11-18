@@ -83,7 +83,7 @@
                     <div class="col-12 col-md-auto p-0 d-flex align-items-center justify-content-center txtForm margin-b-10">
                         <label class="row labelForm text-white" for="mdpinput">Mot de passe</label>
                         <div class="inputContainer d-flex padding-10 align-items-center">
-                            <input class="txtInputForm p-0 " type="text" name="mdp" id="mdpinput" placeholder="Mot de passe">
+                            <input class="txtInputForm p-0 " type="password" name="mdp" id="mdpinput" placeholder="Mot de passe">
                         </div>
                     </div>
                     <div class="col-12 col-md-auto p-0 d-flex align-items-center justify-content-center margin-b-40 gap-10">
