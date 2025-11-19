@@ -36,7 +36,13 @@
                 </div>
             </article>
 
-            <?php require_once __DIR__. "/templates/recherche_trajet.php"; ?>
+            <!-- <?php require_once __DIR__. "/templates/recherche_trajet.php"; ?> -->
+             <div class="searchBar container-fluid mainBgColor padding-10 gap-20 d-flex flex-column align-items-center justify-content-center">
+                <h2 class="searchTitle m-0 padding-10 text-white">Rechercher un trajet</h2>
+                <div class="col-auto m-0 p-0 d-flex align-items-center justify-content-center">
+                    <a class="btnStyle padding-10 font-14 text-white" href="covoiturages.php">C'est parti !</a>
+                </div>
+            </div>
         </main>
 
         <?php require_once __DIR__. "/templates/footer.php"; ?>

@@ -43,7 +43,7 @@
                                     </li>
                                 <?php } else { ?>
                                     <li class="col navbar-item navMenu-listItem">
-                                        <a class="navbar-text" aria-label="Page de connexion" href="Connexion.php">Connexion</a>
+                                        <a class="navbar-text" aria-label="Page de connexion" href="Connexion.php">Connexion | Inscription</a>
                                     </li>
                                 <?php } ?>
                                 

@@ -4,8 +4,9 @@
 
             <?php require_once __DIR__. "/templates/recherche_trajet.php"; ?>
 
+            <?php if($searchResult){ ?>
             <div class="resultContainer container padding-10 round-15 mainBgColor">
-                <div class="filterContainer row gap-20 bg-lightbeige padding-10 round-10">
+                <div class="filterContainer row gap-20 bg-lightbeige padding-10 round-10 hidden">
                     <div class="filterArea col padding-10 d-flex align-items-center justify-content-center">
                         <div class="row m-0 gap-10 d-flex align-items-center justify-content-center">
                             <p class="col-auto p-0 m-0 ">Voyage écologique</p>
@@ -49,12 +50,15 @@
                     <?php include_once __DIR__. "/templates/recap_recherche.php"; ?>
 
                     <ul class="row container-fluid m-0 p-0">
-                        <?php include __DIR__. "/templates/trajet_listElement.php" ?>
-                        <?php include __DIR__. "/templates/trajet_listElement.php" ?>
-                        <?php include __DIR__. "/templates/trajet_listElement.php" ?>
+                        <?php
+                            foreach($searchResult as $searchResult){
+                                include __DIR__. "/templates/trajet_listElement.php";
+                            }
+                        ?>
                     </ul>
                 </div>
             </div>
+            <?php } ?>
             
         </main>
 
