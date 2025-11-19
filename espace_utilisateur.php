@@ -11,7 +11,8 @@
     $userVehicle = getUserVehicles($pdo, $_SESSION['user']['user_id']);
     $marquesListe = getMarquesListe($pdo);
     $energiesListe = getEnergiesListe($pdo);
-    $userCovoitListe = getUserCovoitListe($pdo, $_SESSION['user']['user_id']);
+    $covoitAsDriver = getUserCovoitAsDriver($pdo, $_SESSION['user']['user_id']);
+    $covoitAsPassenger = getUserCovoitAsPassenger($pdo, $_SESSION['user']['user_id']);
 
 
     if (isset($_POST['saveRoleForm'])){
@@ -282,35 +283,69 @@
         <div class="col mainBgColor padding-20 round-tr-b-15 hidden" id="containerHistorique">
             <div class="row bg-lightbeige p-0 m-0 round-10" id="trajetHistorique">
                 <div class="col padding-10 text-mainColor">
+                    <h4 class="col m-10">Chauffeur (<?php if($covoitAsDriver){echo(count($covoitAsDriver));} else {echo("0");}; ?> trajets)</h4>
                     <?php
-                        foreach($userCovoitListe as $covoitListe){ ?>
-                            <div class="trajet_listElement row container-fluid padding-10 gap-10 round-10 text-white font-12">
-                                <div class="col p-0 m-0">
-                                    <div class="resultPseudo row p-0 m-0 fontweight-700 font-14 margin-b-10">
-                                        <?php echo($covoitListe['lieu_depart']); ?>
-                                         > 
-                                        <?php echo($covoitListe['lieu_arrivee']); ?>
+                        if($covoitAsDriver){
+                            foreach($covoitAsDriver as $covoitListe){ ?>
+                                <div class="trajet_listElement row container-fluid padding-10 gap-10 round-10 font-14">
+                                    <div class="col p-0 m-0 margin-r-40">
+                                        <div class="resultPseudo row p-0 m-0 fontweight-700 font-16 margin-b-10">
+                                            <?php echo($covoitListe['lieu_depart']); ?>
+                                            > 
+                                            <?php echo($covoitListe['lieu_arrivee']); ?>
+                                        </div>
+                                        <div class="resultPseudo row p-0 m-0 margin-b-10 fw-bold"><?php echo($_SESSION['user']['pseudo']); ?></div>
+                                        <div class="resultPseudo row p-0 m-0 margin-b-10"><?php echo($covoitListe['statut_trajet_name']); ?></div>
+                                        <div class="resultInfos row p-0 m-0 gap-10 margin-b-10">
+                                            <p class="col-auto p-0 m-0">Départ le <?php echo($covoitListe['date_depart']); ?> à <?php echo($covoitListe['heure_depart']); ?></p>
+                                            <p class="col-auto p-0 m-0">Arrivée le <?php echo($covoitListe['date_arrivee']); ?> à <?php echo($covoitListe['heure_arrivee']); ?></p>
+                                        </div>
+                                        <div class="resultInfos row p-0 m-0 gap-10 margin-b-10">
+                                            <p class="col-auto p-0 m-0"><?php echo($covoitListe['nb_place']); ?> places</p>
+                                            <p class="col-auto p-0 m-0"><?php echo($covoitListe['nb_place_dispo']); ?> disponibles</p>
+                                        </div>
+                                        <div class="resultPrix row p-0 m-0 font-16">
+                                            <p class="col-auto p-0 m-0"><?php echo($covoitListe['prix_personne']); ?> crédits</p>
+                                        </div>
                                     </div>
-                                    <div class="resultPseudo row p-0 m-0 margin-b-10">Pseudo</div>
-                                    <div class="resultInfos row p-0 m-0 gap-10 margin-b-10">
-                                        <p class="col-auto p-0 m-0">Places</p>
-                                        <p class="col-auto p-0 m-0">Date</p>
-                                        <p class="col-auto p-0 m-0">Heure de départ</p>
-                                        <p class="col-auto p-0 m-0">Heure d'arrivée</p>
-                                    </div>
-                                    <div class="resultEco row p-0 m-0 gap-10 d-flex align-items-center margin-b-10">
-                                        <p class="col-auto p-0 m-0">Voyage écologique</p>
-                                        <img class="col-auto leafIcon p-0 m-0" src="assets/icons/leaf.svg" alt="Icone de feuille">
-                                    </div>
-                                    <div class="resultPrix row p-0 m-0 font-16">
-                                        <p class="col-auto p-0 m-0">Prix</p>
+                                    <div class="col-auto m-0 p-0 d-flex flex-column align-items-center justify-content-center">
+                                        <a class="row detailsBtn btnStyle padding-10 font-14 text-white m-10" href="detailTrajet.php">Démarrer</a>
+                                        <a class="row detailsBtn btnStyle padding-10 font-14 text-white m-10" href="detailTrajet.php">Annuler</a>
                                     </div>
                                 </div>
-                                <div class="col-auto m-0 p-0 d-flex align-items-center justify-content-center">
-                                    <a class="detailsBtn btnStyle padding-10 font-14 text-white" href="detailTrajet.php">Détails</a>
+                            <?php }
+                        } ?>
+                    
+                    <h4 class="col m-10">Passager (<?php if($covoitAsPassenger){echo(count($covoitAsPassenger));} else {echo("0");}; ?> trajets)</h4>
+                    <?php
+                        if($covoitAsPassenger){
+                            foreach($covoitAsPassenger as $covoitListe){ ?>
+                                <div class="trajet_listElement row container-fluid padding-10 gap-10 round-10 font-14">
+                                    <div class="col p-0 m-0 margin-r-40">
+                                        <div class="resultPseudo row p-0 m-0 fontweight-700 font-16 margin-b-10">
+                                            <?php echo($covoitListe['lieu_depart']); ?>
+                                            > 
+                                            <?php echo($covoitListe['lieu_arrivee']); ?>
+                                        </div>
+                                        <div class="resultPseudo row p-0 m-0 margin-b-10 fw-bold"><?php echo($covoitListe['pseudo']); ?></div>
+                                        <div class="resultPseudo row p-0 m-0 margin-b-10"><?php echo($covoitListe['statut_trajet_name']); ?></div>
+                                        <div class="resultInfos row p-0 m-0 gap-10 margin-b-10">
+                                            <p class="col-auto p-0 m-0">Départ le <?php echo($covoitListe['date_depart']); ?> à <?php echo($covoitListe['heure_depart']); ?></p>
+                                            <p class="col-auto p-0 m-0">Arrivée le <?php echo($covoitListe['date_arrivee']); ?> à <?php echo($covoitListe['heure_arrivee']); ?></p>
+                                        </div>
+                                        <div class="resultInfos row p-0 m-0 gap-10 margin-b-10">
+                                            <p class="col-auto p-0 m-0"><?php echo($covoitListe['nb_place']); ?> places</p>
+                                        </div>
+                                        <div class="resultPrix row p-0 m-0 font-16">
+                                            <p class="col-auto p-0 m-0"><?php echo($covoitListe['prix_personne'] + 2); ?> crédits</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto m-0 p-0 d-flex align-items-center justify-content-center">
+                                        <a class="detailsBtn btnStyle padding-10 font-14 text-white" href="detailTrajet.php">Annuler</a>
+                                    </div>
                                 </div>
-                            </div>
-                        <?php } ?>
+                            <?php }
+                        } ?>
                 </div>
             </div>
         </div>
