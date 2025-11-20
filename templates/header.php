@@ -48,9 +48,9 @@
                                 <?php } ?>
                                 
                             
-                            <li class="col navbar-item navMenu-listItem">
+                            <!-- <li class="col navbar-item navMenu-listItem">
                                 <a class="navbar-text" aria-label="Page contact" href="">Contact</a>
-                            </li>
+                            </li> -->
                         </ul>
                     </nav>
                 </div>
